@@ -1,0 +1,53 @@
+* {
+	box-sizing: border-box;
+}
+
+.admin-users__header {
+	display: flex;
+	justify-content: space-between;
+	background-color: #fff;
+}
+
+.admin-users {
+	width: 100%;
+}
+
+.admin-users__helper {
+	border: 1px solid #c3c4c7;
+}
+
+.admin-users__row {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.admin-users__cell {
+	padding: 8px;
+	font-size: 15px;
+}
+
+.admin-users__name {
+	width: 10%;
+}
+
+.admin-users__collection,
+.admin-users__picture {
+	width: 10%;
+}
+
+.admin-users__amount {
+	width: 15%;
+}
+
+.admin-users__contacts {
+	width: 15%;
+}
+
+.admin-users__address {
+	width: 25%;
+}
+
+.admin-users__actions {
+	width: 15%;
+}
