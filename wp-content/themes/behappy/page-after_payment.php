@@ -6,6 +6,7 @@ Template Name: Після сплати
 //debug($_POST);
 
 get_header(); 
+//dump ($_POST);
 
 if(!empty($_POST)){
 	function sanitize_data(){
@@ -21,6 +22,7 @@ if(!empty($_POST)){
 	}
 	
 	$after_payment_sanitized_post = sanitize_data();
+	//dump($after_payment_sanitized_post);
 
 	if(!empty($after_payment_sanitized_post['orderReference']) && !empty($after_payment_sanitized_post["transactionStatus"]) ){
 

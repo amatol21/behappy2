@@ -45,8 +45,16 @@ function service_menu_working(){
 	} elseif(empty($_POST['daterange_choose']) && !empty($_SESSION['date_from']) && !empty($_SESSION['date_to'])){
 		$date_from = $_SESSION['date_from'];
 		$date_to = $_SESSION['date_to'];
+	} else{
+		$today = time();
+		$yesterday = $today - 86400;
+		$today = date('Y-m-d');
+		$yesterday = date('Y-m-d', $yesterday);
+		
+		$date_from = $yesterday;
+		$date_to = $today;
 	}
-
+	
 	//dump($_POST['elements_number']);
 
 	if(!empty($_POST['elements_number'])){									// выбрать количество элементов 
