@@ -55,7 +55,7 @@ if(!empty($_POST)){
 					'post_author'    => 1,
 					'post_content'   => serialize([
 						'collection' => $after_payment_array[1], 
-						'donate_amount' => 100
+						'donate_amount' => 1
 					]),
 					'post_status'    => 'paid',
 					'post_title'     => 'qr100',
@@ -65,7 +65,7 @@ if(!empty($_POST)){
 				], true );
 
 				$after_payment_collected_amount = (int) get_post_meta( $after_payment_array[1], 'collection_amount_collected', true );
-				$after_payment_collected_amount += 100;
+				$after_payment_collected_amount += 1;
 				update_post_meta( $after_payment_array[1], 'collection_amount_collected', $after_payment_collected_amount );
 
 				$after_payment_text = 'Ми отримали вашу пожертву. Дякуємо вам за небайдужість.';

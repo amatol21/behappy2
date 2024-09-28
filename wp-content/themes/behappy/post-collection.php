@@ -20,7 +20,7 @@ function receive_new_qr($collection_post_id){
 		$time = time();
 		$wfp_key = get_option('wfp_key');
 	
-		$sign = hash_hmac('md5', "behappyua_com;{$_SERVER["HTTP_HOST"]};qr100_{$collection_post_id}_{$transaction_number};$time;100;UAH;collection_$collection_post_id;1;100", $wfp_key);
+		$sign = hash_hmac('md5', "behappyua_com;{$_SERVER["HTTP_HOST"]};qr100_{$collection_post_id}_{$transaction_number};$time;1;UAH;collection_$collection_post_id;1;1", $wfp_key);
 		return [
 			'transaction_number' => $transaction_number,
 			'time' => $time,
@@ -40,11 +40,11 @@ function receive_new_qr($collection_post_id){
 		'apiVersion' => 1,
 		'orderReference' => "qr100_{$collection_post_id}_{$collection_service['transaction_number']}",
 		'orderDate' => $collection_service['time'],
-		'amount' =>  100,
+		'amount' =>  1,
 		'currency' => 'UAH',
 		'orderTimeout' => 14400,
 		'productName' => ["collection_$collection_post_id"],
-		'productPrice' => ['100'],
+		'productPrice' => ['1'],
 		'productCount' => ['1'],
 		'merchantSignature' => $collection_service['sign'],
 		'returnUrl' => get_page_link( 524) 
@@ -60,7 +60,7 @@ function receive_new_qr($collection_post_id){
 	
 	$collection_response = curl_exec($collection_ch);
 	$collection_result = json_decode($collection_response);
-	//debug($collection_result);
+	dump($collection_result);
 	curl_close($collection_ch); 
 
 	if(!empty($collection_result) && !empty($collection_result->imageUrl)){
