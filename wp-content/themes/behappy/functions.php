@@ -20,6 +20,8 @@ function behappy_styles(){
 	wp_enqueue_style('responsive', get_template_directory_uri() . '/assets/css/responsive.css');
 	wp_enqueue_style('color.v2', get_template_directory_uri() . '/assets/css/color.v2.css');
 	wp_enqueue_style('style-override', get_template_directory_uri() . '/assets/css/style-override.css');
+
+	
 	
 	if(is_page_template( 'post-collection.php' )){
 		wp_enqueue_style('splide-style', get_template_directory_uri() . '/assets/css/splide.min.css');
@@ -50,6 +52,7 @@ function behappy_scripts(){
 	wp_enqueue_script( 'scrollbar', get_template_directory_uri() . '/assets/js/scrollbar.js', array('jquery'), null, true );	
 	wp_enqueue_script( 'userscript', get_template_directory_uri() . '/assets/js/script.v1.js', array('jquery'), null, true );
 
+
 	if(is_page_template( 'post-collection.php' )){
 		wp_enqueue_script( 'splide', get_template_directory_uri() . '/assets/js/splide.min.js', array(), null, true );
 		wp_enqueue_script( 'postcollection', get_template_directory_uri() . '/assets/js/postcollection.js', array(), null, true );
@@ -68,6 +71,15 @@ function behappy_scripts(){
 		wp_enqueue_script( 'frontpage', get_template_directory_uri() . '/assets/js/frontpage.js', array(), null, true );
 	}
 }
+
+add_action( 'admin_enqueue_scripts', function(){
+	wp_enqueue_style('daterangepicker', "//cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css");
+	wp_enqueue_script( 'momentscript', '//cdn.jsdelivr.net/momentjs/latest/moment.min.js', array('jquery'), null, true );
+	wp_enqueue_script( 'daterangepickerscript', '//cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js', array('jquery'), null, true );
+	wp_enqueue_script( 'datepickerscript', plugins_url() . '/service/datepicker.js', array('jquery'), null, true );
+}, 99 );
+
+
 
 function behappy_register_nav_menu() {
 	register_nav_menu( 'primary', 'Primary Menu' );
@@ -470,6 +482,7 @@ $picture_fee = [
 // daily currency rate update
 
 $today_time = time();	
+//debug($today_time);
 $service_currency_array = unserialize(get_user_meta( 1, 'service_currency_usd', true ));
 $last_update_time = $service_currency_array['last_update_time']; 
 if($today_time > ($last_update_time + 86400)){

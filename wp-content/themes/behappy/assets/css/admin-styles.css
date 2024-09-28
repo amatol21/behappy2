@@ -23,17 +23,62 @@
 }
 
 .admin-users__cell {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	padding: 8px;
 	font-size: 15px;
 }
 
+.admin-users__pages-buttons-container {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin: 10px 0;
+}
+
+.admin-users__pages-button {
+	padding: 5px 10px;
+	margin: 5px;
+	font-size: 14px;
+	border-radius: 5px;
+	background-color: Gainsboro;
+	border: 1px solid grey;
+	cursor: pointer;
+}
+
+.admin-users__pages-button:active {
+	background-color: Silver;
+	border: 1px solid DimGray;
+	cursor: pointer;
+}
+
+.admin-users__pages-button__active {
+	padding: 5px 10px;
+	margin: 5px;
+	font-size: 14px;
+	border: 3px solid grey;
+	border-radius: 5px;
+	font-weight: 800;
+}
+
+
+
+
+
+
+
+.admin-users__date {
+	width: 8%;
+}
+
 .admin-users__name {
-	width: 10%;
+	width: 15%;
 }
 
 .admin-users__collection,
 .admin-users__picture {
-	width: 10%;
+	width: 8%;
 }
 
 .admin-users__amount {
@@ -41,13 +86,63 @@
 }
 
 .admin-users__contacts {
-	width: 15%;
+	width: 10%;
 }
 
 .admin-users__address {
-	width: 25%;
+	width: 23%;
 }
 
 .admin-users__actions {
-	width: 15%;
+	width: 13%;
+}
+
+.admin-users__sent__no {
+	padding: 5px;
+	background-color: LightSalmon;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.admin-users__sent__no:active {
+	padding: 5px;
+	background-color: Salmon;
+}
+
+.admin-users__sent__yes {
+	padding: 5px;
+	background-color: LightGreen;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+
+
+
+@media only screen and (min-width: 200px) and (max-width: 1040px) {
+
+	.admin-users__pages-buttons-container {
+		justify-content: center;
+	}
+
+	.admin-users__choose-page {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin: 0 0 15px 0;
+	}
+
+	.admin-users__pages-elements {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin: 0 0 15px 0;
+	}
+
+	.admin-users__dates-number {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin: 0 0 15px 0;
+	}
 }
