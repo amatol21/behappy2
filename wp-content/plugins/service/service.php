@@ -85,7 +85,7 @@ function service_menu_working(){
 
 
 
-	$admin_payments_for_picture_arr = $wpdb->get_results( "SELECT * FROM $wpdb->posts WHERE post_title IN ('donate', 'donate_fee') AND post_status = 'paid' AND post_type = 'payment' AND post_date >= '$date_from' AND post_date < '$date_to'", ARRAY_A); 
+	$admin_payments_for_picture_arr = $wpdb->get_results( "SELECT * FROM $wpdb->posts WHERE post_status = 'paid' AND post_type = 'payment' AND post_date >= '$date_from' AND post_date < '$date_to'", ARRAY_A); 
 	//dump($admin_payments_for_picture_arr);
 
 
