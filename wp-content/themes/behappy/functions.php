@@ -1,5 +1,7 @@
 <?php 
 
+require_once (__DIR__ .'/../../../vendor/autoload.php');
+
 add_action( 'wp_enqueue_scripts', 'behappy_styles');
 add_action( 'wp_enqueue_scripts', 'behappy_scripts');
 add_action( 'after_setup_theme', 'behappy_register_nav_menu' );
@@ -72,7 +74,10 @@ function behappy_scripts(){
 	}
 }
 
-add_action( 'admin_enqueue_scripts', function(){
+
+// Календарь для выбора дат в платежах - вкладка "Додатково"
+
+add_action( 'admin_enqueue_scripts', function(){		
 	wp_enqueue_style('daterangepicker', "//cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css");
 	wp_enqueue_script( 'momentscript', '//cdn.jsdelivr.net/momentjs/latest/moment.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'daterangepickerscript', '//cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js', array('jquery'), null, true );
